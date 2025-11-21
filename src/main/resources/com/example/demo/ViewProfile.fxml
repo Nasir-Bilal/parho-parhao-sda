@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600" prefWidth="900" styleClass="space-root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+
+    <!-- ========== SIDEBAR ========== -->
+    <VBox fx:id="sidebar" prefHeight="600.0" prefWidth="200" spacing="8" style="-fx-background-color: rgba(255,255,255,0.08); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 2, 0);">
+        <padding>
+            <Insets bottom="30" left="15" right="15" top="30" />
+        </padding>
+
+        <!-- App Title/Logo -->
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 20 5;" text="Parho Parhao" />
+
+        <!-- Navigation Buttons -->
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📊  Dashboard">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📝  Requests">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💼  My Offers">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📅  Sessions">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💬  Chat">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn, sidebar-btn-active" text="👤  View Profile">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+        <!-- Spacer to push logout to bottom -->
+        <Region VBox.vgrow="ALWAYS" />
+
+        <!-- Logout Button -->
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn-logout" text="🚪  Logout" />
+    </VBox>
+
+    <!-- ========== MAIN CONTENT AREA ========== -->
+    <ScrollPane fitToWidth="true" layoutX="210" layoutY="0" prefHeight="600" prefWidth="690" style="-fx-background: transparent; -fx-background-color: transparent;" styleClass="scroll-pane">
+        <VBox fillWidth="true" spacing="25">
+            <padding>
+                <Insets bottom="30" left="30" right="30" top="30" />
+            </padding>
+
+            <!-- ========== PROFILE HEADER ========== -->
+            <VBox spacing="15" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
+
+                <!-- Name and Role Row -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <!-- Avatar Circle -->
+                    <VBox alignment="CENTER" style="-fx-background-color: #4CC9F0; -fx-background-radius: 50; -fx-pref-width: 80; -fx-pref-height: 80;">
+                        <Label fx:id="avatarInitials" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: white;" text="AK" />
+                    </VBox>
+
+                    <!-- Name and Details -->
+                    <VBox spacing="5">
+                        <Label fx:id="profileFullName" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" text="Ahmed Khan" />
+                        <HBox spacing="10">
+                            <Label fx:id="profileUniversityId" style="-fx-font-size: 14px; -fx-text-fill: rgba(255,255,255,0.7);" text="ID: i20-1234" />
+                            <Label style="-fx-font-size: 14px; -fx-text-fill: rgba(255,255,255,0.5);" text="•" />
+                            <Label style="-fx-font-size: 14px; -fx-text-fill: #FFD700; -fx-font-weight: bold;" text="⭐ Teacher" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Spacer -->
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <!-- Action Buttons -->
+                    <VBox spacing="10">
+                        <Button fx:id="editProfileBtn" onAction="#handleEditProfile" prefHeight="35" prefWidth="150" styleClass="back-btn" text="✏️ Edit Profile" />
+                        <Button onAction="#handleViewPublicProfile" prefHeight="35" prefWidth="150" style="-fx-background-color: rgba(76,201,240,0.2); -fx-text-fill: #4CC9F0; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-size: 13px; -fx-border-color: #4CC9F0; -fx-border-radius: 8; -fx-border-width: 1;" text="👁️ View Public Profile" />
+                    </VBox>
+                </HBox>
+
+                <!-- Quick Stats -->
+                <GridPane hgap="15" vgap="0">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+
+                    <!-- Stat Card 1 -->
+                    <VBox alignment="CENTER" spacing="5" style="-fx-background-color: rgba(76,201,240,0.15); -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="0">
+                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CC9F0;" text="45" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: rgba(255,255,255,0.7);" text="Total Sessions" />
+                    </VBox>
+
+                    <!-- Stat Card 2 -->
+                    <VBox alignment="CENTER" spacing="5" style="-fx-background-color: rgba(0,255,163,0.15); -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="1">
+                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #00FFA3;" text="PKR 45K" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: rgba(255,255,255,0.7);" text="Total Earnings" />
+                    </VBox>
+
+                    <!-- Stat Card 3 -->
+                    <VBox alignment="CENTER" spacing="5" style="-fx-background-color: rgba(255,215,0,0.15); -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="2">
+                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFD700;" text="4.8" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: rgba(255,255,255,0.7);" text="Average Rating" />
+                    </VBox>
+
+                    <!-- Stat Card 4 -->
+                    <VBox alignment="CENTER" spacing="5" style="-fx-background-color: rgba(138,43,226,0.15); -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="3">
+                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #8A2BE2;" text="28" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: rgba(255,255,255,0.7);" text="Students Taught" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <!-- ========== PERSONAL INFORMATION CARD ========== -->
+            <VBox spacing="15" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="📋 Personal Information" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label style="-fx-font-size: 12px; -fx-text-fill: #4CC9F0;" text="Blue Section" />
+                </HBox>
+
+                <Separator style="-fx-background-color: rgba(255,255,255,0.2);" />
+
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+
+                    <!-- Full Name -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label styleClass="label-title" text="Full Name" />
+                        <TextField fx:id="txtFullName" editable="false" styleClass="input-field" text="Ahmed Khan" />
+                    </VBox>
+
+                    <!-- University ID (Read-only) -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label styleClass="label-title" text="University ID" />
+                        <TextField fx:id="txtUniversityId" editable="false" style="-fx-background-color: rgba(255,255,255,0.05); -fx-text-fill: rgba(255,255,255,0.6); -fx-background-radius: 8; -fx-padding: 10; -fx-border-color: rgba(255,255,255,0.1); -fx-border-radius: 8;" text="i20-1234" />
+                    </VBox>
+
+                    <!-- Phone -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label styleClass="label-title" text="Phone Number" />
+                        <TextField fx:id="txtPhone" editable="false" styleClass="input-field" text="+92 300 1234567" />
+                        <Label fx:id="lblPhoneError" style="-fx-text-fill: #FF6B6B; -fx-font-size: 11px;" text="" visible="false" />
+                    </VBox>
+
+                    <!-- Email (Read-only) -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label styleClass="label-title" text="Email Address" />
+                        <TextField fx:id="txtEmail" editable="false" style="-fx-background-color: rgba(255,255,255,0.05); -fx-text-fill: rgba(255,255,255,0.6); -fx-background-radius: 8; -fx-padding: 10; -fx-border-color: rgba(255,255,255,0.1); -fx-border-radius: 8;" text="ahmed.khan@example.com" />
+                    </VBox>
+
+                    <!-- Department -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Label styleClass="label-title" text="Department" />
+                        <TextField fx:id="txtDepartment" editable="false" styleClass="input-field" text="Computer Science" />
+                    </VBox>
+
+                    <!-- Degree Program -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label styleClass="label-title" text="Degree Program" />
+                        <TextField fx:id="txtDegreeProgram" editable="false" styleClass="input-field" text="BS Computer Science" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <!-- ========== ACADEMIC INFORMATION CARD ========== -->
+            <VBox spacing="15" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="🎓 Academic Information" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label style="-fx-font-size: 12px; -fx-text-fill: #00FFA3;" text="Green Section" />
+                </HBox>
+
+                <Separator style="-fx-background-color: rgba(255,255,255,0.2);" />
+
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+
+                    <!-- Semester -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label styleClass="label-title" text="Current Semester" />
+                        <TextField fx:id="txtSemester" editable="false" styleClass="input-field" text="7" />
+                        <Label fx:id="lblSemesterError" style="-fx-text-fill: #FF6B6B; -fx-font-size: 11px;" text="" visible="false" />
+                    </VBox>
+
+                    <!-- CGPA -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label styleClass="label-title" text="CGPA" />
+                        <TextField fx:id="txtCgpa" editable="false" styleClass="input-field" text="3.85" />
+                        <Label fx:id="lblCgpaError" style="-fx-text-fill: #FF6B6B; -fx-font-size: 11px;" text="" visible="false" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <!-- ========== TEACHING PROFILE CARD ========== -->
+            <VBox spacing="15" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="👨‍🏫 Teaching Profile" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label style="-fx-font-size: 12px; -fx-text-fill: #8A2BE2;" text="Purple Section" />
+                </HBox>
+
+                <Separator style="-fx-background-color: rgba(255,255,255,0.2);" />
+
+                <VBox spacing="15">
+
+                    <!-- Specialization -->
+                    <VBox spacing="5">
+                        <Label styleClass="label-title" text="Specialization" />
+                        <TextField fx:id="txtSpecialization" editable="false" styleClass="input-field" text="Web Development, Data Structures, Algorithms" />
+                    </VBox>
+
+                    <!-- Experience -->
+                    <VBox spacing="5">
+                        <Label styleClass="label-title" text="Teaching Experience (Months)" />
+                        <TextField fx:id="txtExperience" editable="false" styleClass="input-field" text="18" />
+                        <Label fx:id="lblExperienceError" style="-fx-text-fill: #FF6B6B; -fx-font-size: 11px;" text="" visible="false" />
+                    </VBox>
+
+                    <!-- Profile Bio -->
+                    <VBox spacing="5">
+                        <Label styleClass="label-title" text="Profile Bio" />
+                        <TextArea fx:id="txtProfileBio" editable="false" prefRowCount="4" style="-fx-control-inner-background: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-background-color: transparent; -fx-background-radius: 8; -fx-padding: 10; -fx-border-color: rgba(255,255,255,0.2); -fx-border-radius: 8; -fx-prompt-text-fill: rgba(255,255,255,0.5);" text="Passionate about teaching and helping students understand complex programming concepts. Experienced in web development, data structures, and algorithms." wrapText="true" />
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <!-- ========== ACCOUNT INFORMATION CARD ========== -->
+            <VBox spacing="15" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 5);">
+
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="ℹ️ Account Information" />
+
+                <Separator style="-fx-background-color: rgba(255,255,255,0.2);" />
+
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+
+                    <!-- Member Since -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label styleClass="label-title" text="Member Since" />
+                        <Label fx:id="lblMemberSince" styleClass="label-value" text="November 15, 2023" />
+                    </VBox>
+
+                    <!-- Last Updated -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label styleClass="label-title" text="Last Updated" />
+                        <Label fx:id="lblLastUpdated" styleClass="label-value" text="November 20, 2024" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <!-- ========== ACTION BUTTONS (Visible only in edit mode) ========== -->
+            <HBox fx:id="actionButtonsBox" alignment="CENTER" spacing="15" visible="false">
+                <Button onAction="#handleSaveProfile" prefHeight="45" prefWidth="150" styleClass="send-offer-btn" text="💾 Save Changes" />
+                <Button onAction="#handleCancelEdit" prefHeight="45" prefWidth="150" style="-fx-background-color: rgba(255,107,107,0.8); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-size: 14px;" text="✖️ Cancel" />
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+
+</AnchorPane>

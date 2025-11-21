@@ -1,0 +1,331 @@
+/* ========== 🌌 BASE STYLES ========== */
+
+/* Root Galaxy Background */
+.space-root {
+    -fx-background-color: linear-gradient(to bottom right, #0D0D2B, #3A0CA3, #7209B7);
+}
+
+/* Card Containers */
+.login-card,
+.details-card,
+.offer-card {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, #4CC9F0, 25, 0.15, 0, 0);
+}
+
+/* Titles */
+.login-title,
+.section-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E0E0FF;
+}
+
+.section-title {
+    -fx-font-size: 22px;
+    -fx-text-fill: white;
+}
+
+/* Labels */
+.label-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 255, 255, 0.6);
+}
+
+.label-value {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.form-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+    -fx-padding: 5 0 0 0;
+}
+
+/* Hyperlinks */
+.signup-link {
+    -fx-text-fill: #4CC9F0;
+    -fx-font-size: 12px;
+}
+
+.signup-link:hover {
+    -fx-text-fill: #72ECFC;
+    -fx-cursor: hand;
+}
+
+
+/* ========== 🎛️ INPUT FIELDS ========== */
+
+.input-field,
+.date-picker,
+.time-spinner {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.4);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-radius: 8;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 14px;
+}
+
+.input-field:focused,
+.text-area-field:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-border-color: rgba(102, 126, 234, 0.6);
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 10, 0, 0, 0);
+}
+
+/* Text Area */
+.text-area-field {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.4);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-radius: 8;
+    -fx-font-size: 14px;
+}
+
+.text-area-field .content,
+.text-area-field .scroll-pane,
+.text-area-field .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Time Spinners */
+.time-spinner .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.4);
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.time-spinner .increment-arrow-button,
+.time-spinner .decrement-arrow-button {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 0 8 8 0;
+}
+
+.time-spinner .increment-arrow-button:hover,
+.time-spinner .decrement-arrow-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.time-spinner .increment-arrow-button .increment-arrow,
+.time-spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: white;
+}
+
+/* Date Picker */
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.4);
+    -fx-font-size: 14px;
+}
+
+.date-picker .arrow-button,
+.combo-box .arrow-button {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 0 8 8 0;
+}
+
+.date-picker .arrow-button:hover,
+.combo-box .arrow-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.date-picker .arrow,
+.combo-box .arrow {
+    -fx-background-color: white;
+}
+
+/* Checkboxes */
+.day-checkbox {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.day-checkbox .box {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.day-checkbox:selected .box {
+    -fx-background-color: #667eea;
+    -fx-border-color: #667eea;
+}
+
+.day-checkbox:hover .box {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+}
+
+.day-checkbox .mark {
+    -fx-background-color: white;
+}
+
+
+/* ========== 🎯 BUTTONS ========== */
+
+/* Primary Neon Buttons */
+.role-btn,
+.notification-btn {
+    -fx-background-color: linear-gradient(to bottom right, #4361EE, #4CC9F0);
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+}
+
+.role-btn:hover,
+.notification-btn:hover {
+    -fx-background-color: linear-gradient(to bottom right, #5471FF, #5DD9FF);
+    -fx-cursor: hand;
+}
+
+/* Login Button */
+.login-btn {
+    -fx-background-color: linear-gradient(to bottom right, #7209B7, #4CC9F0);
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.login-btn:hover {
+    -fx-background-color: linear-gradient(to bottom right, #8219C7, #5DD9FF);
+    -fx-cursor: hand;
+}
+
+/* Back Button */
+.back-btn {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 15 8 15;
+}
+
+.back-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: white;
+}
+
+/* Send Offer Button */
+.send-offer-btn {
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.4), 15, 0, 0, 5);
+}
+
+.send-offer-btn:hover {
+    -fx-background-color: linear-gradient(to right, #7c8ff0, #8757b0);
+    -fx-effect: dropshadow(gaussian, rgba(102,126,234,0.6), 20, 0, 0, 8);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.send-offer-btn:pressed {
+    -fx-background-color: linear-gradient(to right, #5568d3, #644092);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+
+/* ========== 📋 SIDEBAR ========== */
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15 12 15;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: rgba(255, 255, 255, 0.95);
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.1), 8, 0, 0, 0);
+}
+
+.sidebar-btn:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-scale-y: 0.98;
+}
+
+/* Active/Selected Button */
+.sidebar-btn-active {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 0 0 0 3;
+    -fx-border-insets: 0;
+}
+
+.sidebar-btn-active:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Logout Button */
+.sidebar-btn-logout {
+    -fx-background-color: rgba(255, 100, 100, 0.15);
+    -fx-text-fill: rgba(255, 150, 150, 0.9);
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15 12 15;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn-logout:hover {
+    -fx-background-color: rgba(255, 100, 100, 0.3);
+    -fx-text-fill: rgb(255, 180, 180);
+}
+
+.sidebar-btn-logout:pressed {
+    -fx-background-color: rgba(255, 100, 100, 0.4);
+}
+
+
+/* ========== 📜 SCROLLPANE & MISC ========== */
+
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification Items */
+.notification-item {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}

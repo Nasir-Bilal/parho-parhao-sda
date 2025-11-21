@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600" prefWidth="900" styleClass="space-root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+
+    <!-- ========== SIDEBAR ========== -->
+    <VBox fx:id="sidebar" prefHeight="601.0" prefWidth="200" spacing="8" style="-fx-background-color: rgba(255,255,255,0.08); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 2, 0);">
+        <padding>
+            <Insets bottom="30" left="15" right="15" top="30" />
+        </padding>
+
+        <!-- App Title/Logo -->
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 20 5;" text="Parho Parhao">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+
+        <!-- Navigation Buttons -->
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📊  Dashboard">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn, sidebar-btn-active" text="📝  Requests">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💼  My Offers">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📅  Sessions">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💬  Chat">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></Button>
+
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="👤  View Profile">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></Button>
+
+        <!-- Spacer to push logout to bottom -->
+        <Region VBox.vgrow="ALWAYS" />
+
+        <!-- Logout Button -->
+        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn-logout" text="🚪  Logout" />
+    </VBox>
+
+    <!-- ========== MAIN CONTENT AREA ========== -->
+    <VBox layoutX="210" layoutY="0" prefWidth="690" spacing="20">
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+
+        <!-- ========== TOP BAR: Search, Filters, Notification Button ========== -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <!-- Search Box -->
+            <TextField fx:id="searchField" prefHeight="26.0" prefWidth="229.0" promptText="🔍 Search requests..." styleClass="input-field" />
+
+            <!-- Filters -->
+
+
+            <ComboBox fx:id="uploadTimeFilter" prefHeight="26.0" prefWidth="191.0" promptText="Upload Time" styleClass="input-field" />
+
+            <ComboBox fx:id="slotFilter" prefHeight="26.0" prefWidth="185.0" promptText="Slot Time" styleClass="input-field">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin></ComboBox>
+
+            <!-- Notification Icon -->
+            <Button fx:id="notificationBtn" prefHeight="40" prefWidth="38.0" styleClass="notification-btn" text="🔔">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin></Button>
+        </HBox>
+
+        <!-- ========== SCROLLABLE REQUEST LIST ========== -->
+        <ScrollPane fitToWidth="true" prefHeight="520" styleClass="scroll-pane">
+
+            <VBox fx:id="requestsContainer" fillWidth="true" spacing="15">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <!-- Cards will be added dynamically from controller -->
+            </VBox>
+
+        </ScrollPane>
+
+    </VBox>
+
+</AnchorPane>
