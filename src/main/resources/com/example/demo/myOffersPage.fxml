@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600" prefWidth="900" styleClass="space-root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane prefHeight="600" prefWidth="900" styleClass="space-root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.HelloController">
 
     <!-- ========== SIDEBAR ========== -->
     <VBox fx:id="sidebar" prefHeight="601.0" prefWidth="200" spacing="8" style="-fx-background-color: rgba(255,255,255,0.08); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 2, 0);">
