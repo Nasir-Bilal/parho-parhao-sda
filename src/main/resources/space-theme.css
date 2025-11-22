@@ -1,0 +1,683 @@
+/* 🌌 Root Galaxy Background */
+.space-root {
+    -fx-background-color: linear-gradient(to bottom right, #0D0D2B, #1A1A40, #2D1B69);
+}
+
+/* ═══════════════════════════════════════════
+   📌 LEFT SIDEBAR STYLES
+   ═══════════════════════════════════════════ */
+
+.sidebar-panel {
+    -fx-background-color: linear-gradient(to bottom, #1E1E4A, #0D0D2B);
+    -fx-border-color: rgba(76, 201, 240, 0.15);
+    -fx-border-width: 0 1 0 0;
+}
+
+.logo-section {
+    -fx-background-color: transparent;
+}
+
+.logo-text {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to right, #4CC9F0, #7209B7);
+    -fx-text-fill: #FFFFFF;
+}
+
+.logo-subtitle {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(224, 224, 255, 0.5);
+    -fx-font-weight: normal;
+}
+
+.sidebar-divider {
+    -fx-background-color: linear-gradient(to right, transparent, rgba(76, 201, 240, 0.3), transparent);
+    -fx-pref-height: 1;
+    -fx-min-height: 1;
+}
+
+.menu-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: rgba(224, 224, 255, 0.4);
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10 5;
+}
+
+.nav-menu {
+    -fx-background-color: transparent;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(224, 224, 255, 0.8);
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.15);
+    -fx-text-fill: #4CC9F0;
+}
+
+.sidebar-btn.active {
+    -fx-background-color: linear-gradient(to right, rgba(114, 9, 183, 0.4), rgba(76, 201, 240, 0.2));
+    -fx-text-fill: #4CC9F0;
+    -fx-border-color: #4CC9F0;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 0 10 10 0;
+    -fx-background-radius: 0 10 10 0;
+}
+
+.logout-btn:hover {
+    -fx-background-color: rgba(255, 82, 82, 0.2);
+    -fx-text-fill: #FF5252;
+}
+
+/* ═══════════════════════════════════════════
+   📌 MAIN CONTENT AREA
+   ═══════════════════════════════════════════ */
+
+.main-content {
+    -fx-background-color: linear-gradient(to bottom right, #12122B, #1A1A45);
+}
+
+.header-bar {
+    -fx-background-color: rgba(30, 30, 74, 0.8);
+    -fx-border-color: rgba(76, 201, 240, 0.1);
+    -fx-border-width: 0 0 1 0;
+}
+
+.welcome-text {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.welcome-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: rgba(224, 224, 255, 0.5);
+}
+
+/* Search Bar */
+.search-container {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-background-radius: 25;
+    -fx-border-color: rgba(76, 201, 240, 0.2);
+    -fx-border-radius: 25;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E0E0FF;
+    -fx-prompt-text-fill: rgba(224, 224, 255, 0.4);
+    -fx-padding: 10 15;
+    -fx-font-size: 13px;
+}
+
+.search-icon-btn {
+    -fx-background-color: linear-gradient(to right, #7209B7, #4CC9F0);
+    -fx-text-fill: white;
+    -fx-background-radius: 0 25 25 0;
+    -fx-padding: 10 18;
+    -fx-cursor: hand;
+}
+
+.icon-btn {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: #E0E0FF;
+    -fx-background-radius: 50;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+}
+
+.icon-btn:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.2);
+}
+
+.profile-avatar {
+    -fx-background-color: linear-gradient(to bottom right, #7209B7, #4361EE);
+    -fx-background-radius: 50;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+.avatar-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.content-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.content-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Stats Cards */
+.stat-card {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-background-radius: 15;
+    -fx-border-color: rgba(76, 201, 240, 0.15);
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(76, 201, 240, 0.1), 10, 0, 0, 2);
+}
+
+.stat-label {
+    -fx-text-fill: rgba(224, 224, 255, 0.6);
+    -fx-font-size: 12px;
+}
+
+.stat-value {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.stat-change {
+    -fx-text-fill: rgba(224, 224, 255, 0.5);
+    -fx-font-size: 11px;
+}
+
+.stat-change.positive {
+    -fx-text-fill: #4ADE80;
+}
+
+.stat-link {
+    -fx-text-fill: #4CC9F0;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.primary-btn {
+    -fx-background-color: linear-gradient(to right, #7209B7, #4CC9F0);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+}
+
+.primary-btn:hover {
+    -fx-background-color: linear-gradient(to right, #8B0FCF, #5ED8F7);
+}
+
+/* ═══════════════════════════════════════════
+   📌 TABS STYLING
+   ═══════════════════════════════════════════ */
+
+.tutor-tabs {
+    -fx-background-color: transparent;
+}
+
+.tutor-tabs .tab-header-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 10 0;
+}
+
+.tutor-tabs .tab {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 20 20 0 0;
+    -fx-padding: 10 20;
+}
+
+.tutor-tabs .tab:selected {
+    -fx-background-color: rgba(76, 201, 240, 0.2);
+}
+
+.tutor-tabs .tab .tab-label {
+    -fx-text-fill: rgba(224, 224, 255, 0.7);
+    -fx-font-size: 13px;
+}
+
+.tutor-tabs .tab:selected .tab-label {
+    -fx-text-fill: #4CC9F0;
+    -fx-font-weight: bold;
+}
+
+.tab-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.tab-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ═══════════════════════════════════════════
+   📌 OFFER CARDS
+   ═══════════════════════════════════════════ */
+
+.offer-card {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(76, 201, 240, 0.1);
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0, 0, 4);
+}
+
+.offer-card:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-border-color: rgba(76, 201, 240, 0.3);
+}
+
+.tutor-avatar {
+    -fx-background-color: linear-gradient(to bottom right, #4361EE, #4CC9F0);
+    -fx-background-radius: 50;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+}
+
+.tutor-avatar.accent {
+    -fx-background-color: linear-gradient(to bottom right, #7209B7, #F72585);
+}
+
+.tutor-avatar.secondary {
+    -fx-background-color: linear-gradient(to bottom right, #3A0CA3, #4361EE);
+}
+
+.avatar-initials {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.tutor-name {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.rating-badge {
+    -fx-background-color: rgba(255, 193, 7, 0.2);
+    -fx-text-fill: #FFC107;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+    -fx-font-size: 11px;
+}
+
+.verified-badge {
+    -fx-background-color: rgba(74, 222, 128, 0.2);
+    -fx-text-fill: #4ADE80;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.top-badge {
+    -fx-background-color: rgba(247, 37, 133, 0.2);
+    -fx-text-fill: #F72585;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.subject-text {
+    -fx-text-fill: #4CC9F0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.description-text {
+    -fx-text-fill: rgba(224, 224, 255, 0.6);
+    -fx-font-size: 13px;
+}
+
+.price-tag {
+    -fx-text-fill: #4ADE80;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.availability-tag {
+    -fx-text-fill: rgba(224, 224, 255, 0.5);
+    -fx-font-size: 12px;
+}
+
+/* Action Buttons */
+.accept-btn {
+    -fx-background-color: linear-gradient(to right, #059669, #4ADE80);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 15;
+    -fx-cursor: hand;
+}
+
+.accept-btn:hover {
+    -fx-background-color: linear-gradient(to right, #047857, #22C55E);
+}
+
+.decline-btn {
+    -fx-background-color: rgba(239, 68, 68, 0.2);
+    -fx-text-fill: #EF4444;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 15;
+    -fx-border-color: rgba(239, 68, 68, 0.3);
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+
+.decline-btn:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.3);
+}
+
+.message-btn {
+    -fx-background-color: rgba(76, 201, 240, 0.15);
+    -fx-text-fill: #4CC9F0;
+    -fx-background-radius: 8;
+    -fx-padding: 8 15;
+    -fx-border-color: rgba(76, 201, 240, 0.3);
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+
+.message-btn:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.25);
+}
+
+/* Empty States */
+.placeholder-text, .empty-title {
+    -fx-text-fill: rgba(224, 224, 255, 0.5);
+    -fx-font-size: 16px;
+}
+
+.empty-subtitle {
+    -fx-text-fill: rgba(224, 224, 255, 0.3);
+    -fx-font-size: 13px;
+}
+
+/* ═══════════════════════════════════════════
+   📌 RIGHT PANEL - NOTIFICATIONS & CHATS
+   ═══════════════════════════════════════════ */
+
+.chat-panel {
+    -fx-background-color: linear-gradient(to bottom, #1E1E4A, #0D0D2B);
+    -fx-border-color: rgba(76, 201, 240, 0.15);
+    -fx-border-width: 0 0 0 1;
+}
+
+.panel-header {
+    -fx-background-color: transparent;
+}
+
+.panel-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.panel-divider {
+    -fx-background-color: linear-gradient(to right, transparent, rgba(76, 201, 240, 0.3), transparent);
+    -fx-pref-height: 1;
+    -fx-min-height: 1;
+}
+
+/* ─────────────────────────────────────────
+   NOTIFICATIONS SECTION
+   ───────────────────────────────────────── */
+
+.notifications-section {
+    -fx-background-color: transparent;
+}
+
+.notification-count {
+    -fx-background-color: #F72585;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+}
+
+.notification-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.notification-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.notification-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.notification-item:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.08);
+}
+
+.notification-item.unread {
+    -fx-background-color: rgba(114, 9, 183, 0.1);
+    -fx-border-color: rgba(114, 9, 183, 0.2);
+    -fx-border-radius: 10;
+    -fx-border-width: 0 0 0 2;
+}
+
+.notif-icon {
+    -fx-background-radius: 8;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
+    -fx-alignment: center;
+}
+
+.notif-icon.offer {
+    -fx-background-color: rgba(76, 201, 240, 0.2);
+}
+
+.notif-icon.reminder {
+    -fx-background-color: rgba(255, 193, 7, 0.2);
+}
+
+.notif-icon.payment {
+    -fx-background-color: rgba(74, 222, 128, 0.2);
+}
+
+.notif-icon.review {
+    -fx-background-color: rgba(247, 37, 133, 0.2);
+}
+
+.notif-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.notif-desc {
+    -fx-text-fill: rgba(224, 224, 255, 0.6);
+    -fx-font-size: 11px;
+}
+
+.notif-time {
+    -fx-text-fill: rgba(224, 224, 255, 0.4);
+    -fx-font-size: 10px;
+}
+
+.unread-dot {
+    -fx-text-fill: #7209B7;
+    -fx-font-size: 8px;
+}
+
+.view-all-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4CC9F0;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.view-all-btn:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.1);
+    -fx-background-radius: 15;
+}
+
+/* ─────────────────────────────────────────
+   CHATS SECTION
+   ───────────────────────────────────────── */
+
+.chats-section {
+    -fx-background-color: transparent;
+}
+
+.message-count {
+    -fx-background-color: #F72585;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8;
+    -fx-background-radius: 10;
+}
+
+.chat-search-container {
+    -fx-background-color: transparent;
+}
+
+.chat-search {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-background-radius: 20;
+    -fx-text-fill: #E0E0FF;
+    -fx-prompt-text-fill: rgba(224, 224, 255, 0.3);
+    -fx-padding: 10 15;
+    -fx-border-color: rgba(76, 201, 240, 0.1);
+    -fx-border-radius: 20;
+}
+
+.chat-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.chat-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.chat-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+
+.chat-item:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.08);
+}
+
+.chat-item.active {
+    -fx-background-color: rgba(76, 201, 240, 0.12);
+    -fx-border-color: rgba(76, 201, 240, 0.2);
+    -fx-border-radius: 12;
+    -fx-border-width: 0 0 0 3;
+}
+
+.chat-avatar {
+    -fx-background-color: linear-gradient(to bottom right, #4361EE, #7209B7);
+    -fx-background-radius: 50;
+    -fx-min-width: 45;
+    -fx-min-height: 45;
+    -fx-max-width: 45;
+    -fx-max-height: 45;
+}
+
+.chat-avatar.online {
+    -fx-effect: dropshadow(gaussian, #4ADE80, 8, 0.5, 0, 0);
+}
+
+.chat-avatar-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.chat-name {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.chat-time {
+    -fx-text-fill: rgba(224, 224, 255, 0.4);
+    -fx-font-size: 11px;
+}
+
+.chat-preview {
+    -fx-text-fill: rgba(224, 224, 255, 0.5);
+    -fx-font-size: 12px;
+}
+
+.unread-badge {
+    -fx-background-color: #F72585;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 2 7;
+    -fx-background-radius: 10;
+}
+
+.new-message-container {
+    -fx-border-color: rgba(76, 201, 240, 0.1);
+    -fx-border-width: 1 0 0 0;
+}
+
+.new-message-btn {
+    -fx-background-color: linear-gradient(to right, #7209B7, #4CC9F0);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.new-message-btn:hover {
+    -fx-background-color: linear-gradient(to right, #8B0FCF, #5ED8F7);
+}
+
+/* ═══════════════════════════════════════════
+   📌 SCROLLBAR STYLING
+   ═══════════════════════════════════════════ */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(76, 201, 240, 0.3);
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(76, 201, 240, 0.5);
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}

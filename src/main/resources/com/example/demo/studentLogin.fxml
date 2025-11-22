@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@../../../space-theme.css"
+            styleClass="space-root"
+            fx:controller="com.example.demo.HomeController">
+
+    <children>
+        <VBox alignment="CENTER" spacing="15"
+              prefWidth="320"
+              layoutX="290" layoutY="140"
+              styleClass="login-card">
+
+            <children>
+                <Label text="Login"
+                       styleClass="login-title" />
+
+                <HBox spacing="10" alignment="CENTER">
+                    <children>
+                        <Button fx:id="studentBtn" text="Student"
+                                prefWidth="100"
+                                styleClass="role-btn" />
+                        <Button fx:id="tutorBtn" text="Tutor"
+                                prefWidth="100"
+                                styleClass="role-btn" />
+                    </children>
+                </HBox>
+
+                <!-- Updated fields -->
+                <TextField fx:id="txtLoginEmail"
+                           promptText="Email"
+                           prefWidth="250"
+                           styleClass="input-field" />
+
+                <PasswordField fx:id="txtLoginPassword"
+                               promptText="Password"
+                               prefWidth="250"
+                               styleClass="input-field" />
+
+                <Button fx:id="btnLogin"
+                        text="Login"
+                        onAction="#onLoginButtonClick"
+                        prefWidth="100"
+                        styleClass="login-btn" />
+
+                <Hyperlink fx:id="linkCreateAccount"
+                           text="Create an account"
+                           onAction="#onCreateAccountClick"
+                           styleClass="signup-link" />
+            </children>
+
+            <padding>
+                <Insets top="25" bottom="25" left="25" right="25"/>
+            </padding>
+
+        </VBox>
+    </children>
+
+</AnchorPane>

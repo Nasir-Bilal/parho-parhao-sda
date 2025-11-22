@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="800" prefWidth="1280" styleClass="space-root" stylesheets="@../../../space-theme.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HomeController">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox prefWidth="240" spacing="0" styleClass="sidebar-panel">
+            <padding><Insets bottom="20" left="0" right="0" top="0" /></padding>
+
+            <!-- Logo Section -->
+            <VBox alignment="CENTER" spacing="5" styleClass="logo-section">
+                <padding><Insets bottom="30" left="20" right="20" top="30" /></padding>
+                <Label style="-fx-font-size: 36px;" text="🎓" />
+                <Label styleClass="logo-text" text="Parha Do" />
+                <Label styleClass="logo-subtitle" text="Learning Platform" />
+            </VBox>
+
+            <!-- Divider -->
+            <HBox styleClass="sidebar-divider">
+                <padding><Insets left="20" right="20" /></padding>
+            </HBox>
+
+            <!-- Navigation Menu -->
+            <VBox spacing="8" styleClass="nav-menu">
+                <padding><Insets bottom="25" left="15" right="15" top="25" /></padding>
+
+                <Label styleClass="menu-label" text="MAIN MENU" />
+
+                <Button fx:id="btnHome" onAction="#onHomeClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn" text="   🏠  Student Home" />
+
+                <Button fx:id="btnProfile" onAction="#onProfileClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn, active" text="   👤  My Profile" />
+
+                <Button fx:id="btnPostRequest" onAction="#onPostRequestClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn" text="   📝  Post New Request" />
+
+                <Button fx:id="btnViewTutors" onAction="#onViewTutorsClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn" text="   👨‍🏫  View Tutors" />
+
+                <Button fx:id="btnMyBookings" onAction="#onMyBookingsClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn" text="   📅  My Bookings" />
+            </VBox>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS" />
+
+            <!-- Bottom Section -->
+            <VBox spacing="8">
+                <padding><Insets bottom="25" left="15" right="15" top="15" /></padding>
+
+                <!-- Divider -->
+                <HBox styleClass="sidebar-divider" />
+
+                <Region prefHeight="10" />
+
+                <Button fx:id="btnSettings" onAction="#onSettingsClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn" text="   ⚙️  Settings" />
+
+                <Button fx:id="btnLogout" onAction="#onLogoutClick" alignment="CENTER_LEFT" maxWidth="Infinity" styleClass="sidebar-btn, logout-btn" text="   🚪  Logout" />
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- CENTER CONTENT AREA -->
+    <center>
+        <VBox spacing="0" styleClass="main-content">
+
+            <!-- Top Header Bar -->
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="header-bar">
+                <padding><Insets bottom="20" left="30" right="30" top="20" /></padding>
+
+                <VBox spacing="3">
+                    <Label styleClass="welcome-text" text="My Profile" />
+                    <Label styleClass="welcome-subtitle" text="Manage your account and preferences" />
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Edit Profile Button -->
+                <Button fx:id="btnEditProfile" onAction="#onEditProfileClick" styleClass="primary-btn" text="✏️ Edit Profile" />
+
+                <!-- Notification & Profile -->
+                <Button fx:id="btnNotifications" onAction="#onNotificationsClick" styleClass="icon-btn" text="🔔">
+                    <tooltip>
+                        <Tooltip text="You have new notifications" />
+                    </tooltip>
+                </Button>
+                <VBox alignment="CENTER" styleClass="profile-avatar">
+                    <Label styleClass="avatar-text" text="H" />
+                </VBox>
+            </HBox>
+
+            <!-- Content Area -->
+            <ScrollPane fitToWidth="true" styleClass="content-scroll">
+                <VBox spacing="25">
+                    <padding><Insets bottom="30" left="30" right="30" top="25" /></padding>
+
+                    <!-- Profile Header Card -->
+                    <HBox spacing="30" styleClass="stat-card" style="-fx-padding: 30;">
+                        <!-- Profile Picture -->
+                        <VBox alignment="CENTER" spacing="15">
+                            <VBox alignment="CENTER" style="-fx-background-color: linear-gradient(#667eea 0%, #764ba2 100%); -fx-background-radius: 80; -fx-pref-width: 160; -fx-pref-height: 160;">
+                                <Label style="-fx-font-size: 64px; -fx-text-fill: white; -fx-font-weight: bold;" text="H" />
+                            </VBox>
+                            <Button fx:id="btnChangePhoto" onAction="#changePhoto" style="-fx-font-size: 11px;" text="Change Photo" />
+                        </VBox>
+
+                        <!-- Profile Info -->
+                        <VBox spacing="12" HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <Label fx:id="lblProfileName" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Hamza Ahmed" />
+                                <Label style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 5 12; -fx-background-radius: 15; -fx-font-size: 11px; -fx-font-weight: bold;" text="✓ VERIFIED" />
+                            </HBox>
+
+                            <Label fx:id="lblStudentId" style="-fx-text-fill: #888; -fx-font-size: 13px;" text="Student ID: STD-2025-1234" />
+
+                            <HBox spacing="25" style="-fx-padding: 10 0 0 0;">
+                                <VBox spacing="5">
+                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="MEMBER SINCE" />
+                                    <Label fx:id="lblMemberSince" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="January 2025" />
+                                </VBox>
+                                <VBox spacing="5">
+                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="TOTAL SESSIONS" />
+                                    <Label fx:id="lblTotalSessions" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="24" />
+                                </VBox>
+                                <VBox spacing="5">
+                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="ACTIVE REQUESTS" />
+                                    <Label fx:id="lblActiveRequestsProfile" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="3" />
+                                </VBox>
+                                <VBox spacing="5">
+                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="RATING" />
+                                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="⭐ 4.8" />
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Profile Tabs -->
+                    <TabPane styleClass="tutor-tabs" tabClosingPolicy="UNAVAILABLE">
+
+                        <!-- PERSONAL INFORMATION TAB -->
+                        <Tab text="👤 Personal Information">
+                            <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                                <VBox spacing="20">
+                                    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
+                                    <!-- Bio Data Card -->
+                                    <VBox spacing="15" styleClass="offer-card">
+                                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="📋 Basic Information" />
+                                            <Region HBox.hgrow="ALWAYS" />
+                                            <Button fx:id="btnEditBasicInfo" onAction="#toggleBasicInfoEdit" style="-fx-font-size: 11px;" styleClass="primary-btn" text="✏️ Edit" />
+                                        </HBox>
+
+                                        <Separator />
+
+                                        <!-- Two Column Layout for Info -->
+                                        <GridPane hgap="30" vgap="18">
+                                            <!-- Column 1 -->
+                                            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="FULL NAME" />
+                                                <Label fx:id="lblFullName" style="-fx-font-size: 14px;" text="Hamza Ahmed" />
+                                            </VBox>
+
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="AGE" />
+                                                <Label fx:id="lblAge" style="-fx-font-size: 14px;" text="22 years" />
+                                            </VBox>
+
+                                            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="EMAIL ADDRESS" />
+                                                <Label fx:id="lblEmail" style="-fx-font-size: 14px;" text="hamza.ahmed@university.edu.pk" />
+                                            </VBox>
+
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="PHONE NUMBER" />
+                                                <Label fx:id="lblPhone" style="-fx-font-size: 14px;" text="+92 300 1234567" />
+                                            </VBox>
+
+                                            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                                <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="DEGREE PROGRAM" />
+                                                <Label fx:id="lblDegree" style="-fx-font-size: 14px;" text="Bachelor of Computer Science" />
+                                            </VBox>
+
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="UNIVERSITY" />
+                                                <Label fx:id="lblUniversity" style="-fx-font-size: 14px;" text="National University of Sciences and Technology" />
+                                            </VBox>
+                                        </GridPane>
+                                    </VBox>
+
+                                    <!-- Bio/Description Card -->
+                                    <VBox spacing="15" styleClass="offer-card">
+                                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="📝 About Me" />
+                                            <Region HBox.hgrow="ALWAYS" />
+                                            <Button fx:id="btnEditBio" onAction="#toggleBioEdit" style="-fx-font-size: 11px;" styleClass="primary-btn" text="✏️ Edit" />
+                                        </HBox>
+
+                                        <Separator />
+
+                                        <TextArea fx:id="txtBioDescription" editable="false" prefRowCount="5" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Computer Science student passionate about artificial intelligence and machine learning. Currently in my 3rd year, focusing on data structures, algorithms, and AI courses. Looking to learn from experienced tutors to strengthen my understanding of complex topics. Enjoy collaborative learning and problem-solving." wrapText="true" />
+                                    </VBox>
+
+                                    <!-- Academic Interests -->
+                                    <VBox spacing="15" styleClass="offer-card">
+                                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🎯 Academic Interests" />
+                                        <Separator />
+
+                                        <FlowPane hgap="10" vgap="10">
+                                            <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 8 15; -fx-background-radius: 15; -fx-text-fill: #64C8FF;" text="Artificial Intelligence" />
+                                            <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 8 15; -fx-background-radius: 15; -fx-text-fill: #64C8FF;" text="Machine Learning" />
+                                            <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 8 15; -fx-background-radius: 15; -fx-text-fill: #64C8FF;" text="Data Structures" />
+                                            <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 8 15; -fx-background-radius: 15; -fx-text-fill: #64C8FF;" text="Operating Systems" />
+                                            <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 8 15; -fx-background-radius: 15; -fx-text-fill: #64C8FF;" text="Database Systems" />
+                                            <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 8 15; -fx-background-radius: 15; -fx-text-fill: #64C8FF;" text="Web Development" />
+                                        </FlowPane>
+                                    </VBox>
+                                </VBox>
+                            </ScrollPane>
+                        </Tab>
+
+                        <!-- BOOKING HISTORY TAB -->
+                        <Tab text="📅 Booking History">
+                            <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                                <VBox spacing="15">
+                                    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
+                                    <!-- Stats Summary -->
+                                    <HBox spacing="15">
+                                        <VBox spacing="8" style="-fx-background-color: rgba(76, 175, 80, 0.1); -fx-padding: 15; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="COMPLETED SESSIONS" />
+                                            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="24" />
+                                        </VBox>
+                                        <VBox spacing="8" style="-fx-background-color: rgba(255, 152, 0, 0.1); -fx-padding: 15; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="UPCOMING SESSIONS" />
+                                            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="2" />
+                                        </VBox>
+                                        <VBox spacing="8" style="-fx-background-color: rgba(244, 67, 54, 0.1); -fx-padding: 15; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="CANCELLED SESSIONS" />
+                                            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #F44336;" text="1" />
+                                        </VBox>
+                                    </HBox>
+
+                                    <!-- Booking History Items -->
+                                    <VBox spacing="12">
+                                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Recent Bookings" />
+
+                                        <!-- Booking 1 - Completed -->
+                                        <HBox spacing="20" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #4CAF50; -fx-border-width: 1; -fx-border-radius: 10;" styleClass="offer-card">
+                                            <VBox alignment="CENTER" styleClass="tutor-avatar">
+                                                <Label styleClass="avatar-initials" text="MJ" />
+                                            </VBox>
+
+                                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <Label style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Mike Johnson - Data Structures" />
+                                                    <Label style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 3 10; -fx-background-radius: 10; -fx-font-size: 10px;" text="COMPLETED" />
+                                                </HBox>
+                                                <Label style="-fx-text-fill: #888;" text="📅 Monday, Nov 18, 2025 • 3:00 PM - 5:00 PM" />
+                                                <Label style="-fx-text-fill: #888;" text="💰 $56 (2 hours @ $28/hr)" />
+                                                <HBox alignment="CENTER_LEFT" spacing="8">
+                                                    <Label text="Rating:" />
+                                                    <Label text="⭐⭐⭐⭐⭐" />
+                                                </HBox>
+                                            </VBox>
+
+                                            <VBox alignment="CENTER" spacing="8">
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" styleClass="primary-btn" text="📝 Write Review" />
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" text="View Details" />
+                                            </VBox>
+                                        </HBox>
+
+                                        <!-- Booking 2 - Upcoming -->
+                                        <HBox spacing="20" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #FF9800; -fx-border-width: 1; -fx-border-radius: 10;" styleClass="offer-card">
+                                            <VBox alignment="CENTER" styleClass="tutor-avatar accent">
+                                                <Label styleClass="avatar-initials" text="SK" />
+                                            </VBox>
+
+                                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <Label style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Sarah Khan - Database Systems" />
+                                                    <Label style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-padding: 3 10; -fx-background-radius: 10; -fx-font-size: 10px;" text="UPCOMING" />
+                                                </HBox>
+                                                <Label style="-fx-text-fill: #888;" text="📅 Wednesday, Nov 27, 2025 • 4:00 PM - 6:00 PM" />
+                                                <Label style="-fx-text-fill: #888;" text="💰 $52 (2 hours @ $26/hr)" />
+                                                <Label style="-fx-text-fill: #FF9800; -fx-font-style: italic;" text="⏰ Session starts in 6 days" />
+                                            </VBox>
+
+                                            <VBox alignment="CENTER" spacing="8">
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" styleClass="message-btn" text="💬 Message" />
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" text="Reschedule" />
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" styleClass="decline-btn" text="Cancel" />
+                                            </VBox>
+                                        </HBox>
+
+                                        <!-- Booking 3 - Completed -->
+                                        <HBox spacing="20" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #4CAF50; -fx-border-width: 1; -fx-border-radius: 10;" styleClass="offer-card">
+                                            <VBox alignment="CENTER" styleClass="tutor-avatar secondary">
+                                                <Label styleClass="avatar-initials" text="JS" />
+                                            </VBox>
+
+                                            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <Label style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Jane Smith - Artificial Intelligence" />
+                                                    <Label style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 3 10; -fx-background-radius: 10; -fx-font-size: 10px;" text="COMPLETED" />
+                                                </HBox>
+                                                <Label style="-fx-text-fill: #888;" text="📅 Friday, Nov 15, 2025 • 2:00 PM - 3:30 PM" />
+                                                <Label style="-fx-text-fill: #888;" text="💰 $45 (1.5 hours @ $30/hr)" />
+                                                <HBox alignment="CENTER_LEFT" spacing="8">
+                                                    <Label text="Rating:" />
+                                                    <Label text="⭐⭐⭐⭐⭐" />
+                                                </HBox>
+                                            </VBox>
+
+                                            <VBox alignment="CENTER" spacing="8">
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" styleClass="accept-btn" text="✓ Reviewed" />
+                                                <Button prefWidth="110" style="-fx-font-size: 11px;" text="View Details" />
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                </VBox>
+                            </ScrollPane>
+                        </Tab>
+
+                        <!-- REQUEST HISTORY TAB -->
+                        <Tab text="📝 My Requests">
+                            <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                                <VBox spacing="15">
+                                    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
+                                    <!-- Request Stats -->
+                                    <HBox spacing="15">
+                                        <VBox spacing="8" style="-fx-background-color: rgba(100, 200, 255, 0.1); -fx-padding: 15; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="ACTIVE REQUESTS" />
+                                            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #64C8FF;" text="3" />
+                                        </VBox>
+                                        <VBox spacing="8" style="-fx-background-color: rgba(76, 175, 80, 0.1); -fx-padding: 15; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="FULFILLED REQUESTS" />
+                                            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="12" />
+                                        </VBox>
+                                        <VBox spacing="8" style="-fx-background-color: rgba(255, 152, 0, 0.1); -fx-padding: 15; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="PENDING OFFERS" />
+                                            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="5" />
+                                        </VBox>
+                                    </HBox>
+
+                                    <!-- Current Active Requests -->
+                                    <VBox spacing="12">
+                                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Active Requests" />
+
+                                        <!-- Request 1 - Active -->
+                                        <VBox spacing="12" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Operating Systems Help Needed" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-padding: 5 12; -fx-background-radius: 12; -fx-font-size: 11px; -fx-font-weight: bold;" text="5 OFFERS" />
+                                            </HBox>
+
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Posted: 2 days ago • Expires: 5 days" />
+
+                                            <Label style="-fx-wrap-text: true;" text="Need help understanding process scheduling, memory management, and file systems. Looking for experienced tutor for 2-hour sessions." wrapText="true" />
+
+                                            <HBox spacing="20">
+                                                <Label styleClass="price-tag" text="💰 Budget: $20-30/hr" />
+                                                <Label styleClass="availability-tag" text="📅 Preferred: Weekdays" />
+                                                <Label styleClass="availability-tag" text="⏱️ Duration: 2 hours" />
+                                            </HBox>
+
+                                            <HBox spacing="10">
+                                                <Button styleClass="primary-btn" text="View Offers (5)" />
+                                                <Button text="Edit Request" />
+                                                <Button styleClass="decline-btn" text="Close Request" />
+                                            </HBox>
+                                        </VBox>
+
+                                        <!-- Request 2 - Active -->
+                                        <VBox spacing="12" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Machine Learning Fundamentals" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label style="-fx-background-color: #64C8FF; -fx-text-fill: white; -fx-padding: 5 12; -fx-background-radius: 12; -fx-font-size: 11px; -fx-font-weight: bold;" text="2 OFFERS" />
+                                            </HBox>
+
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Posted: 4 days ago • Expires: 3 days" />
+
+                                            <Label style="-fx-wrap-text: true;" text="Looking to understand neural networks, gradient descent, and basic ML algorithms. Need tutor with practical experience." wrapText="true" />
+
+                                            <HBox spacing="20">
+                                                <Label styleClass="price-tag" text="💰 Budget: $30-40/hr" />
+                                                <Label styleClass="availability-tag" text="📅 Preferred: Weekends" />
+                                                <Label styleClass="availability-tag" text="⏱️ Duration: 1.5 hours" />
+                                            </HBox>
+
+                                            <HBox spacing="10">
+                                                <Button styleClass="primary-btn" text="View Offers (2)" />
+                                                <Button text="Edit Request" />
+                                                <Button styleClass="decline-btn" text="Close Request" />
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Past Requests -->
+                                    <VBox spacing="12" style="-fx-padding: 20 0 0 0;">
+                                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Past Requests (Fulfilled)" />
+
+                                        <!-- Past Request 1 -->
+                                        <VBox spacing="10" style="-fx-background-color: rgba(255, 255, 255, 0.03); -fx-padding: 18; -fx-background-radius: 10; -fx-border-color: #4CAF50; -fx-border-width: 1; -fx-border-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Data Structures and Algorithms Practice" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 4 10; -fx-background-radius: 10; -fx-font-size: 10px;" text="✓ FULFILLED" />
+                                            </HBox>
+
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="Posted: 2 weeks ago • Closed: 1 week ago" />
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Matched with: Mike Johnson • Session completed on Nov 18, 2025" />
+                                        </VBox>
+
+                                        <!-- Past Request 2 -->
+                                        <VBox spacing="10" style="-fx-background-color: rgba(255, 255, 255, 0.03); -fx-padding: 18; -fx-background-radius: 10; -fx-border-color: #4CAF50; -fx-border-width: 1; -fx-border-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Introduction to AI and Neural Networks" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 4 10; -fx-background-radius: 10; -fx-font-size: 10px;" text="✓ FULFILLED" />
+                                            </HBox>
+
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="Posted: 3 weeks ago • Closed: 2 weeks ago" />
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Matched with: Jane Smith • Session completed on Nov 15, 2025" />
+                                        </VBox>
+                                    </VBox>
+                                </VBox>
+                            </ScrollPane>
+                        </Tab>
+
+                        <!-- REVIEWS & RATINGS TAB -->
+                        <Tab text="⭐ Reviews and Ratings">
+                            <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                                <VBox spacing="20">
+                                    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
+                                    <!-- Rating Summary Card -->
+                                    <HBox spacing="30" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 25; -fx-background-radius: 12;" styleClass="offer-card">
+                                        <!-- Overall Rating -->
+                                        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+                                            <Label style="-fx-font-size: 48px; -fx-font-weight: bold;" text="4.8" />
+                                            <Label text="⭐⭐⭐⭐⭐" />
+                                            <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Based on 12 reviews" />
+                                        </VBox>
+
+                                        <Separator orientation="VERTICAL" />
+
+                                        <!-- Rating Breakdown -->
+                                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                            <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Rating Breakdown" />
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label style="-fx-min-width: 60;" text="5 stars" />
+                                                <ProgressBar prefWidth="200" progress="0.75" style="-fx-accent: #4CAF50;" />
+                                                <Label style="-fx-text-fill: #888;" text="9 reviews" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label style="-fx-min-width: 60;" text="4 stars" />
+                                                <ProgressBar prefWidth="200" progress="0.25" style="-fx-accent: #8BC34A;" />
+                                                <Label style="-fx-text-fill: #888;" text="3 reviews" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label style="-fx-min-width: 60;" text="3 stars" />
+                                                <ProgressBar prefWidth="200" progress="0.0" style="-fx-accent: #FFC107;" />
+                                                <Label style="-fx-text-fill: #888;" text="0 reviews" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label style="-fx-min-width: 60;" text="2 stars" />
+                                                <ProgressBar prefWidth="200" progress="0.0" style="-fx-accent: #FF9800;" />
+                                                <Label style="-fx-text-fill: #888;" text="0 reviews" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label style="-fx-min-width: 60;" text="1 star" />
+                                                <ProgressBar prefWidth="200" progress="0.0" style="-fx-accent: #F44336;" />
+                                                <Label style="-fx-text-fill: #888;" text="0 reviews" />
+                                            </HBox>
+                                        </VBox>
+                                    </HBox>
+
+                                    <!-- Reviews List -->
+                                    <VBox spacing="15">
+                                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Reviews from Tutors" />
+
+                                        <!-- Review 1 -->
+                                        <VBox spacing="12" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <VBox alignment="CENTER" styleClass="tutor-avatar">
+                                                    <Label styleClass="avatar-initials" text="MJ" />
+                                                </VBox>
+
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Mike Johnson" />
+                                                        <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="• Data Structures Tutor" />
+                                                    </HBox>
+                                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                                        <Label text="⭐⭐⭐⭐⭐" />
+                                                        <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="3 days ago" />
+                                                    </HBox>
+                                                </VBox>
+                                            </HBox>
+
+                                            <Label style="-fx-wrap-text: true;" text="Hamza is an excellent student! He came prepared with specific questions, actively participated throughout the session, and showed genuine interest in learning. His understanding of data structures improved significantly. Highly recommend!" wrapText="true" />
+
+                                            <HBox spacing="15" style="-fx-padding: 10 0 0 0;">
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="👍 Prepared" />
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="💡 Quick Learner" />
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="🎯 Focused" />
+                                            </HBox>
+                                        </VBox>
+
+                                        <!-- Review 2 -->
+                                        <VBox spacing="12" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <VBox alignment="CENTER" styleClass="tutor-avatar accent">
+                                                    <Label styleClass="avatar-initials" text="JS" />
+                                                </VBox>
+
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Jane Smith" />
+                                                        <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="• AI Specialist" />
+                                                    </HBox>
+                                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                                        <Label text="⭐⭐⭐⭐⭐" />
+                                                        <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="1 week ago" />
+                                                    </HBox>
+                                                </VBox>
+                                            </HBox>
+
+                                            <Label style="-fx-wrap-text: true;" text="Great session with Hamza! He asked insightful questions about neural networks and machine learning concepts. His enthusiasm for AI is evident. Looking forward to future sessions!" wrapText="true" />
+
+                                            <HBox spacing="15" style="-fx-padding: 10 0 0 0;">
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="🌟 Enthusiastic" />
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="❓ Asks Good Questions" />
+                                            </HBox>
+                                        </VBox>
+
+                                        <!-- Review 3 -->
+                                        <VBox spacing="12" style="-fx-background-color: rgba(255, 255, 255, 0.05); -fx-padding: 20; -fx-background-radius: 10;" styleClass="offer-card">
+                                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                                <VBox alignment="CENTER" styleClass="tutor-avatar secondary">
+                                                    <Label styleClass="avatar-initials" text="SK" />
+                                                </VBox>
+
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Sarah Khan" />
+                                                        <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="• Database Expert" />
+                                                    </HBox>
+                                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                                        <Label text="⭐⭐⭐⭐" />
+                                                        <Label style="-fx-text-fill: #888; -fx-font-size: 11px;" text="2 weeks ago" />
+                                                    </HBox>
+                                                </VBox>
+                                            </HBox>
+
+                                            <Label style="-fx-wrap-text: true;" text="Hamza is a dedicated student who takes learning seriously. He followed through on all practice exercises and came back with thoughtful questions. Would definitely work with him again!" wrapText="true" />
+
+                                            <HBox spacing="15" style="-fx-padding: 10 0 0 0;">
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="✅ Dedicated" />
+                                                <Label style="-fx-background-color: rgba(100, 200, 255, 0.2); -fx-padding: 5 12; -fx-background-radius: 10; -fx-text-fill: #64C8FF; -fx-font-size: 11px;" text="📚 Completes Work" />
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+                                </VBox>
+                            </ScrollPane>
+                        </Tab>
+
+                        <!-- SETTINGS TAB -->
+                        <Tab text="⚙️ Settings">
+                            <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                                <VBox spacing="20">
+                                    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
+                                    <!-- Account Settings -->
+                                    <VBox spacing="15" styleClass="offer-card">
+                                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🔐 Account Settings" />
+                                        <Separator />
+
+                                        <VBox spacing="15">
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Change Password" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Update your account password" />
+                                                </VBox>
+                                                <Button fx:id="btnChangePassword" onAction="#changePassword" styleClass="primary-btn" text="Change" />
+                                            </HBox>
+
+                                            <Separator />
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Email Verification" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Your email is verified ✓" />
+                                                </VBox>
+                                                <Label style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 8; -fx-font-size: 12px;" text="Verified" />
+                                            </HBox>
+
+                                            <Separator />
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Two-Factor Authentication" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Add an extra layer of security" />
+                                                </VBox>
+                                                <Button fx:id="btnEnable2FA" onAction="#onEnable2FAClick" text="Enable" />
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Notification Preferences -->
+                                    <VBox spacing="15" styleClass="offer-card">
+                                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🔔 Notification Preferences" />
+                                        <Separator />
+
+                                        <VBox spacing="18">
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Email Notifications" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Receive notifications via email" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkEmailNotifications" selected="true" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="New Offer Alerts" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Get notified when tutors send offers" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkOfferAlerts" selected="true" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Session Reminders" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Reminder before upcoming sessions" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkSessionReminders" selected="true" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Marketing Emails" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Receive promotional content and updates" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkMarketingEmails" />
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Privacy Settings -->
+                                    <VBox spacing="15" styleClass="offer-card">
+                                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🔒 Privacy Settings" />
+                                        <Separator />
+
+                                        <VBox spacing="18">
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Profile Visibility" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Make your profile visible to tutors" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkProfileVisibility" selected="true" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Show Reviews" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Display reviews on your profile" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkShowReviews" selected="true" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Share Phone Number" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Allow tutors to see your phone number" />
+                                                </VBox>
+                                                <CheckBox fx:id="chkSharePhone" />
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Danger Zone -->
+                                    <VBox spacing="15" style="-fx-background-color: rgba(244, 67, 54, 0.1); -fx-padding: 25; -fx-background-radius: 10; -fx-border-color: #F44336; -fx-border-width: 1; -fx-border-radius: 10;">
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #F44336;" text="⚠️ Danger Zone" />
+                                        <Separator />
+
+                                        <VBox spacing="15">
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold;" text="Deactivate Account" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Temporarily disable your account" />
+                                                </VBox>
+                                                <Button fx:id="btnDeactivate" onAction="#onDeactivateClick" style="-fx-background-color: #FF9800; -fx-text-fill: white;" text="Deactivate" />
+                                            </HBox>
+
+                                            <Separator />
+
+                                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #F44336;" text="Delete Account" />
+                                                    <Label style="-fx-text-fill: #888; -fx-font-size: 12px;" text="Permanently delete your account and all data" />
+                                                </VBox>
+                                                <Button fx:id="btnDeleteAccount" onAction="#onDeleteClick" styleClass="decline-btn" text="Delete" />
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Save Button -->
+                                    <HBox alignment="CENTER_RIGHT" spacing="10">
+                                        <Button fx:id="btnCancelSettings" onAction="#cancelSettings" text="Cancel" />
+                                        <Button fx:id="btnSaveSettings" onAction="#saveSettings" styleClass="accept-btn" text="Save Changes" />
+                                    </HBox>
+                                </VBox>
+                            </ScrollPane>
+                        </Tab>
+
+                    </TabPane>
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- RIGHT PANEL - SPLIT INTO NOTIFICATIONS AND CHATS -->
+    <right>
+        <VBox prefWidth="300" spacing="0" styleClass="chat-panel">
+
+            <!-- Quick Stats Panel -->
+            <VBox spacing="12" style="-fx-background-color: rgba(100, 200, 255, 0.1); -fx-padding: 20;">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="📊 Quick Stats" />
+
+                <HBox spacing="15">
+                    <VBox spacing="3" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #64C8FF;" text="4.8" />
+                        <Label style="-fx-font-size: 10px; -fx-text-fill: #888;" text="Your Rating" />
+                    </VBox>
+                    <VBox spacing="3" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="24" />
+                        <Label style="-fx-font-size: 10px; -fx-text-fill: #888;" text="Sessions" />
+                    </VBox>
+                    <VBox spacing="3" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="3" />
+                        <Label style="-fx-font-size: 10px; -fx-text-fill: #888;" text="Requests" />
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- TAB PANE FOR NOTIFICATIONS AND CHATS -->
+            <TabPane styleClass="right-panel-tabs" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+                <!-- NOTIFICATIONS TAB -->
+                <Tab text="🔔 Activity">
+                    <VBox spacing="0">
+                        <ScrollPane fitToWidth="true" styleClass="chat-scroll" VBox.vgrow="ALWAYS">
+                            <VBox spacing="12">
+                                <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+
+                                <!-- Recent Activity Item 1 -->
+                                <VBox spacing="8" style="-fx-background-color: rgba(76, 175, 80, 0.1); -fx-padding: 12; -fx-background-radius: 8;">
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <Label style="-fx-font-size: 16px;" text="✅" />
+                                        <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Session Completed" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label style="-fx-text-fill: #888; -fx-font-size: 10px;" text="3d ago" />
+                                    </HBox>
+                                    <Label style="-fx-font-size: 11px; -fx-wrap-text: true;" text="Completed session with Mike Johnson" wrapText="true" />
+                                </VBox>
+
+                                <!-- Recent Activity Item 2 -->
+                                <VBox spacing="8" style="-fx-background-color: rgba(100, 200, 255, 0.1); -fx-padding: 12; -fx-background-radius: 8;">
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <Label style="-fx-font-size: 16px;" text="⭐" />
+                                        <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="New Review" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label style="-fx-text-fill: #888; -fx-font-size: 10px;" text="5d ago" />
+                                    </HBox>
+                                    <Label style="-fx-font-size: 11px; -fx-wrap-text: true;" text="Jane Smith rated you 5 stars" wrapText="true" />
+                                </VBox>
+
+                                <!-- Recent Activity Item 3 -->
+                                <VBox spacing="8" style="-fx-background-color: rgba(255, 152, 0, 0.1); -fx-padding: 12; -fx-background-radius: 8;">
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <Label style="-fx-font-size: 16px;" text="📨" />
+                                        <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="New Offer" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label style="-fx-text-fill: #888; -fx-font-size: 10px;" text="1w ago" />
+                                    </HBox>
+                                    <Label style="-fx-font-size: 11px; -fx-wrap-text: true;" text="Received offer for ML tutoring" wrapText="true" />
+                                </VBox>
+                            </VBox>
+                        </ScrollPane>
+                    </VBox>
+                </Tab>
+
+                <!-- ACHIEVEMENTS TAB -->
+                <Tab text="🏆 Badges">
+                    <VBox spacing="0">
+                        <ScrollPane fitToWidth="true" styleClass="chat-scroll" VBox.vgrow="ALWAYS">
+                            <VBox spacing="15">
+                                <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+
+                                <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Your Achievements" />
+
+                                <!-- Achievement 1 -->
+                                <VBox alignment="CENTER" spacing="8" style="-fx-background-color: rgba(255, 215, 0, 0.1); -fx-padding: 15; -fx-background-radius: 10;">
+                                    <Label style="-fx-font-size: 32px;" text="🎓" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Scholar" />
+                                    <Label style="-fx-font-size: 10px; -fx-text-fill: #888; -fx-text-alignment: center;" text="Completed 20+ sessions" wrapText="true" />
+                                </VBox>
+
+                                <!-- Achievement 2 -->
+                                <VBox alignment="CENTER" spacing="8" style="-fx-background-color: rgba(100, 200, 255, 0.1); -fx-padding: 15; -fx-background-radius: 10;">
+                                    <Label style="-fx-font-size: 32px;" text="⭐" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Top Rated" />
+                                    <Label style="-fx-font-size: 10px; -fx-text-fill: #888; -fx-text-alignment: center;" text="Maintained 4.5+ rating" wrapText="true" />
+                                </VBox>
+
+                                <!-- Achievement 3 -->
+                                <VBox alignment="CENTER" spacing="8" style="-fx-background-color: rgba(76, 175, 80, 0.1); -fx-padding: 15; -fx-background-radius: 10;">
+                                    <Label style="-fx-font-size: 32px;" text="🔥" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Consistent Learner" />
+                                    <Label style="-fx-font-size: 10px; -fx-text-fill: #888; -fx-text-alignment: center;" text="7-day learning streak" wrapText="true" />
+                                </VBox>
+
+                                <!-- Locked Achievement -->
+                                <VBox alignment="CENTER" spacing="8" style="-fx-background-color: rgba(150, 150, 150, 0.1); -fx-padding: 15; -fx-background-radius: 10; -fx-opacity: 0.6;">
+                                    <Label style="-fx-font-size: 32px;" text="🔒" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Master Student" />
+                                    <Label style="-fx-font-size: 10px; -fx-text-fill: #888; -fx-text-alignment: center;" text="Complete 50 sessions to unlock" wrapText="true" />
+                                </VBox>
+                            </VBox>
+                        </ScrollPane>
+                    </VBox>
+                </Tab>
+
+            </TabPane>
+        </VBox>
+    </right>
+
+</BorderPane>
