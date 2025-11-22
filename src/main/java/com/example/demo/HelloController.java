@@ -15,12 +15,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import java.util.Optional;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.layout.Priority;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Separator;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.control.ButtonType;
+import java.io.IOException;
 import java.util.stream.Collectors;
 import java.util.List;
 import java.util.ArrayList;
@@ -128,11 +128,34 @@ public class HelloController {
     private Label lblSemesterError;
     @FXML
     private Label lblExperienceError;
+    // Navigation buttons
+    @FXML
+    private Button btnDashboard;
+    @FXML
+    private Button btnRequests;
+    @FXML
+    private Button btnMyOffers;
+    @FXML
+    private Button btnSessions;
+    @FXML
+    private Button btnChat;
+    @FXML
+    private Button btnViewProfile;
+    @FXML
+    private Button btnLogout;
+
+    // Current page tracking
+    private String currentPage = "";
 
     private boolean isEditMode = false;
 
+
+
     @FXML
     public void initialize() {
+        // Detect which page is currently loaded
+        detectCurrentPage();
+        updateActiveButton();
         // ========== Initialize Requests Page Fields (if present) ==========
         if (courseFilter != null) {
             courseFilter.getItems().addAll("Math", "Physics", "CS101");
@@ -281,6 +304,18 @@ public class HelloController {
         // For Profile Page
         if (txtFullName != null) {
             loadProfileData();
+        }
+    }
+
+
+    /**
+     * Detect which page is currently loaded
+     */
+    private void detectCurrentPage() {
+        if (btnDashboard != null && btnDashboard.getScene() != null) {
+            // Try to detect from URL or set a default
+            // This will be set properly when navigating
+            currentPage = ""; // Will be set on first navigation
         }
     }
 
@@ -527,6 +562,121 @@ public class HelloController {
         card.getChildren().addAll(titleLabel, separator, grid, messageBox, actionBox);
 
         return card;
+    }
+
+    // ==================== NAVIGATION METHODS ====================
+
+    @FXML
+    private void handleNavigateToDashboard() {
+        navigateToPage("/com/example/demo/hello-view.fxml", "Dashboard");
+    }
+
+    @FXML
+    private void handleNavigateToRequests() {
+        navigateToPage("/com/example/demo/requestPage.fxml", "Requests");
+    }
+
+    @FXML
+    private void handleNavigateToMyOffers() {
+        navigateToPage("/com/example/demo/myOffersPage.fxml", "My Offers");
+    }
+
+    @FXML
+    private void handleNavigateToSessions() {
+        navigateToPage("/com/example/demo/sessionsPage.fxml", "Sessions");
+    }
+
+    @FXML
+    private void handleNavigateToChat() {
+        // TODO: Create chat page
+        showAlert("Coming Soon", "Chat feature will be available soon!");
+    }
+
+    @FXML
+    private void handleNavigateToProfile() {
+        navigateToPage("/com/example/demo/ViewProfile.fxml", "View Profile");
+    }
+
+    @FXML
+    private void handleLogout() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("Are you sure you want to logout?");
+        alert.setContentText("You will be redirected to the login page.");
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // TODO: Clear session/user data
+                System.out.println("Logging out...");
+                // Navigate to login page or close application
+                Stage stage = (Stage) btnLogout.getScene().getWindow();
+                stage.close();
+            }
+        });
+    }
+
+    /**
+     * Main navigation method that handles page transitions
+     */
+    private void navigateToPage(String fxmlPath, String pageTitle) {
+        try {
+            // Don't reload if already on this page
+            if (currentPage.equals(fxmlPath)) {
+                return;
+            }
+
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+
+            // Get the current stage
+            Stage stage = (Stage) btnDashboard.getScene().getWindow();
+
+            // Create new scene with the loaded FXML
+            Scene scene = new Scene(root, 900, 600);
+
+            // Apply the same CSS stylesheet
+            scene.getStylesheets().add(getClass().getResource("/com/example/demo/space-theme.css").toExternalForm());
+
+            // Set the new scene
+            stage.setScene(scene);
+            stage.setTitle("Parho Parhao - " + pageTitle);
+
+            // Update current page
+            currentPage = fxmlPath;
+
+            System.out.println("Navigated to: " + pageTitle);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Navigation Error", "Could not load page: " + pageTitle);
+        }
+    }
+
+    /**
+     * Highlight the active navigation button based on current page
+     */
+    private void updateActiveButton() {
+        // Remove active class from all buttons
+        btnDashboard.getStyleClass().remove("sidebar-btn-active");
+        btnRequests.getStyleClass().remove("sidebar-btn-active");
+        btnMyOffers.getStyleClass().remove("sidebar-btn-active");
+        btnSessions.getStyleClass().remove("sidebar-btn-active");
+        btnChat.getStyleClass().remove("sidebar-btn-active");
+        btnViewProfile.getStyleClass().remove("sidebar-btn-active");
+
+        // Add active class to current button
+        if (currentPage.contains("hello-view")) {
+            btnDashboard.getStyleClass().add("sidebar-btn-active");
+        } else if (currentPage.contains("requestPage")) {
+            btnRequests.getStyleClass().add("sidebar-btn-active");
+        } else if (currentPage.contains("myOffersPage")) {
+            btnMyOffers.getStyleClass().add("sidebar-btn-active");
+        } else if (currentPage.contains("sessionsPage")) {
+            btnSessions.getStyleClass().add("sidebar-btn-active");
+        } else if (currentPage.contains("ViewProfile")) {
+            btnViewProfile.getStyleClass().add("sidebar-btn-active");
+        }
     }
 
     // Helper method for status icon

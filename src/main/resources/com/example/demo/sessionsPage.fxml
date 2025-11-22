@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="600" prefWidth="900" styleClass="space-root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
 
     <!-- ========== SIDEBAR ========== -->
-    <VBox fx:id="sidebar" prefHeight="600.0" prefWidth="200" spacing="8" style="-fx-background-color: rgba(255,255,255,0.08); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 2, 0);">
+    <VBox fx:id="sidebar" prefHeight="601.0" prefWidth="200" spacing="8" style="-fx-background-color: rgba(255,255,255,0.08); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 2, 0);">
         <padding>
             <Insets bottom="30" left="15" right="15" top="30" />
         </padding>
@@ -24,37 +24,37 @@
         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 20 5;" text="Parho Parhao" />
 
         <!-- Navigation Buttons -->
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📊  Dashboard">
+        <Button fx:id="btnDashboard" onAction="#handleNavigateToDashboard" prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📊  Dashboard">
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
 
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📝  Requests">
+        <Button fx:id="btnRequests" onAction="#handleNavigateToRequests" prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📝  Requests">
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
 
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💼  My Offers">
+        <Button fx:id="btnMyOffers" onAction="#handleNavigateToMyOffers" prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💼  My Offers">
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
 
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn, sidebar-btn-active" text="📅  Sessions">
+        <Button fx:id="btnSessions" onAction="#handleNavigateToSessions" prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="📅  Sessions">
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
 
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💬  Chat">
+        <Button fx:id="btnChat" onAction="#handleNavigateToChat" prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="💬  Chat">
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
 
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="👤  View Profile">
+        <Button fx:id="btnViewProfile" onAction="#handleNavigateToProfile" prefHeight="45" prefWidth="170" styleClass="sidebar-btn" text="👤  View Profile">
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
@@ -64,7 +64,7 @@
         <Region VBox.vgrow="ALWAYS" />
 
         <!-- Logout Button -->
-        <Button prefHeight="45" prefWidth="170" styleClass="sidebar-btn-logout" text="🚪  Logout" />
+        <Button fx:id="btnLogout" onAction="#handleLogout" prefHeight="45" prefWidth="170" styleClass="sidebar-btn-logout" text="🚪  Logout" />
     </VBox>
 
     <!-- ========== MAIN CONTENT AREA ========== -->
